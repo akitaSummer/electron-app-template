@@ -1,6 +1,6 @@
-const { app, shell, ipcMain } = require('electron')
+import { app, shell, ipcMain, MenuItemConstructorOptions, MenuItem } from 'electron'
 
-let template = [
+const template: Array<(MenuItemConstructorOptions) | (MenuItem)> = [
   {
     label: '视图',
     submenu: [
@@ -39,7 +39,7 @@ let template = [
         })(),
         click: (item, focusedWindow) => {
           if (focusedWindow) {
-            focusedWindow.toggleDevTools()
+            focusedWindow.webContents.toggleDevTools()
           }
         }
       }
@@ -108,7 +108,7 @@ if (process.platform === 'darwin') {
       {
         label: `隐藏其他`,
         accelerator: 'Command + Alt + H',
-        role: 'hideothers'
+        role: 'hideOthers'
       },
       {
         label: '显示全部',
@@ -127,13 +127,13 @@ if (process.platform === 'darwin') {
     ]
   })
 } else {
-  template[0].submenu.push({
-    label: '设置',
-    accelerator: 'Ctrl + ,',
-    click: () => {
-      ipcMain.emit('open-settings-window')
-    }
-  })
+    template[0].submenu && (template[0].submenu as MenuItemConstructorOptions[]).push({
+        label: '设置',
+        accelerator: 'Ctrl + ,',
+        click: () => {
+        ipcMain.emit('open-settings-window')
+        }
+    })
 }
 
-module.exports = template
+export default template

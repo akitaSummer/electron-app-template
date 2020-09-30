@@ -1,7 +1,7 @@
-const { BrowserWindow } = require('electron')
+import { BrowserWindow, BrowserWindowConstructorOptions } from 'electron'
 
 class AppWindow extends BrowserWindow {
-    constructor(config, urlLocation) {
+    constructor(config: BrowserWindowConstructorOptions, urlLocation: string) {
         const defaultConfig = {
             width: 800,
             height: 600,
@@ -19,4 +19,4 @@ class AppWindow extends BrowserWindow {
     }
 }
 
-module.exports = AppWindow
+export default AppWindow
