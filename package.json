@@ -19,7 +19,7 @@
         "buildElectron": "webpack",
         "test": "react-app-rewired test",
         "eject": "react-app-rewired eject",
-        "dev": "concurrently \" wait-on http://localhost:3000 && nodemon --watch . --exec \\\"electron .\\\"\" \" cross-env BROWSER=none npm start \"",
+        "dev": "concurrently \" cross-env BROWSER=none npm start \" \" wait-on http://localhost:3000 && nodemon --watch . --exec \\\"electron .\\\"\"",
         "pack": "electron-builder --dir",
         "dist": "electron-builder",
         "prepack": "npm run build && npm run buildElectron",
@@ -58,8 +58,8 @@
     },
     "homepage": "./",
     "build": {
-        "appId": "",
-        "productName": "",
+        "appId": "{{appId}}",
+        "productName": "{{productName}}",
         "copyright": "Copyright © 2020 year ${author}",
         "extends": null,
         "files": [
@@ -69,52 +69,13 @@
             "package.json"
         ],
         "directories": {
-            "buildRwsources": "assets"
+            "buildResources": "assets"
         },
         "extraMetadata": {
             "main": "./build/main.js"
         },
         "publish": [
             "github"
-        ],
-        "mac": {
-            "category": "pubilc.app-category.productivity",
-            "artifactName": "${productName}-${version}-${arch}.${ext}"
-        },
-        "dmg": {
-            "background": "assets/appdmg.png",
-            "icon": "assets/icon.icns",
-            "iconSize": 100,
-            "contents": [{
-                    "x": 380,
-                    "y": 280,
-                    "type": "link",
-                    "path": "/Applications"
-                },
-                {
-                    "x": 110,
-                    "y": 280,
-                    "type": "file"
-                }
-            ],
-            "window": {
-                "width": 500,
-                "height": 500
-            }
-        },
-        "win": {
-            "target": [
-                "msi",
-                "nsis"
-            ],
-            "icon": "assets/icon.ico",
-            "artifactName": "${productName}-Web-Setup-${version}.${ext}",
-            "publisherName": "akitasummer"
-        },
-        "nsis": {
-            "allowToChangeInstallationDirectory": true,
-            "oneClick": false,
-            "perMachine": false
-        }
+        ]
     }
 }
