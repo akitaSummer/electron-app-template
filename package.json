@@ -1,0 +1,8 @@
+{
+  "name": "electron-app-template",
+  "version": "1.0.0",
+  "description": "electron-app-template",
+  "main": "index.js",
+  "author": "akitasummer",
+  "license": "MIT"
+}
