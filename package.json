@@ -81,8 +81,24 @@
         "extraMetadata": {
             "main": "./build/main.js"
         },
-        "publish": [
-            "github"
-        ]
+        "mac": {
+            "category": "pubilc.app-category.productivity",
+            "artifactName": "${productName}-${version}-${arch}.${ext}",
+            "icon": "assets/icon.ico"
+        },
+        "win": {
+            "target": [
+                "msi",
+                "nsis"
+            ],
+            "icon": "assets/icon.ico",
+            "artifactName": "${productName}-Web-Setup-${version}.${ext}",
+            "publisherName": "akitasummer"
+        },
+        "nsis": {
+            "allowToChangeInstallationDirectory": true,
+            "oneClick": false,
+            "perMachine": false
+        }
     }
 }
