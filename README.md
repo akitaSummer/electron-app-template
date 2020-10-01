@@ -1,7 +1,24 @@
-### `yarn dev`
+# electron-app-template
 
-Runs the app in the development mode.<br />
+## Project setup
+```
+yarn install
+```
 
-### `yarn dist`
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
 
-Builds the app for production.<br />
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

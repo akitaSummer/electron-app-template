@@ -10,7 +10,7 @@ app.on('ready', () => {
         slashes: true,
         pathname: require('path').join(__dirname, 'index.html')
     })
-    const urlLocation = 'http://localhost:3000'
+    const urlLocation = 'http://localhost:8080'
     let mainWindow = new AppWindow({
         width: 1400,
         height: 1400,
